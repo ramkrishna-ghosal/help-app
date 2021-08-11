@@ -1,0 +1,46 @@
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h4 class=" card-title">Payments List</h4>
+          </div>
+          <div class=" card-body">
+            <div class="table-responsive">
+              <!-- <div>
+                <span><input [(ngModel)]="search" name="search" class="searches" placeholder="Search Text"/></span>
+                <button (click)="filterUser()" class="searchesbtn">Search</button>
+              </div> -->
+              <table class=" table tablesorter" id="" *ngIf="allPayments.length>0">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>Transaction ID</th>
+                    <th>Payment Method</th>
+                    <th>Payment Status</th>
+                    <th class="text-center">Payment Date</th>
+                    <th class="text-center">Donated TO</th>
+                    <th class="text-center">Donated By</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let payments of allPayments">
+                    <td>{{payments.transactionID}}
+                    </td>
+                    <td>{{payments.paymentMethod}}</td>
+                    <td>{{payments.paymentStatus}}</td>
+                    <td class=" text-center">{{payments.createdAt | date:'medium'}}</td>
+                    <td class=" text-center">{{payments.receiverDetail.name}}</td>
+                    <td class=" text-center">{{payments.senderDetail.name}}</td>
+                  </tr>
+  
+                </tbody>
+              </table>
+            </div>
+            <div *ngIf="allPayments.length==0">
+              <p class=" text-center">No Data to List</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

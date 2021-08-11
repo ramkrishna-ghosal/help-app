@@ -1,0 +1,220 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class="row mb-5">
+
+        <div class="col-lg-4 mb-3" *ngFor="let post of allPosts">
+          <div class="tiles">
+            <div class="row mb-2">
+              <div class="col-lg-2">
+                <img [src]="post.images[0]" class="rounded-circle fifty"/>
+              </div>
+              <div class="col-lg-10">
+                <p style="margin-bottom:5px;">{{post.title}}</p>
+                <p style="margin-bottom:5px;">{{post.category}}</p>
+                <span class="AlterPost"> <i class="fas fa-edit fa-p" (click)="alterMe(post)"></i> </span>
+              </div>
+            </div>
+            <div class="row posterimg">
+              <img [src]="post.images[0]" alt="Image Unavailable" class="img-fluid"/>
+            </div>
+            <div class="row">
+              <h5>{{post.caption}}</h5>
+            </div>
+            <div class="row">
+              <p>{{post.hashtag}}</p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-lg-4">
+          <div class="tiles">
+            <div class="row">
+              <div class="col-lg-2">
+                <img src="user.png" class="rounded-circle" width="50" height="50">
+              </div>
+              <div class="col-lg-10">
+                <p style="margin-bottom:5px;">test Active</p>
+                <p style="margin-bottom:5px;">City, State</p>
+              </div>
+            </div>
+            <div class="row">
+              <img src="demoimg.jpg" class="img-fluid radius">
+            </div>
+            <div class="row">
+              <h5>Oxygen</h5>
+            </div>
+            <div class="row">
+              <p> Test texts texts texts texts </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="tiles">
+            <div class="row">
+              <div class="col-lg-2">
+                <img src="user.png" class="rounded-circle" width="50" height="50">
+              </div>
+              <div class="col-lg-10">
+                <p style="margin-bottom:5px;">test Active</p>
+                <p style="margin-bottom:5px;">City, State</p>
+              </div>
+            </div>
+            <div class="row">
+              <img src="demoimg.jpg" class="img-fluid radius">
+            </div>
+            <div class="row">
+              <h5>Oxygen</h5>
+            </div>
+            <div class="row">
+              <p> Test texts texts texts texts </p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!-- <div class=" col-md-12">
+      <div class=" card card-plain">
+        <div class=" card-header">
+          <h4 class=" card-title">Table on Plain Background</h4>
+          <p class=" category">Here is a subtitle for this table</p>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Name</th>
+                  <th>Country</th>
+                  <th>City</th>
+                  <th class=" text-center">Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dakota Rice</td>
+                  <td>Niger</td>
+                  <td>Oud-Turnhout</td>
+                  <td class=" text-center">$36,738</td>
+                </tr>
+                <tr>
+                  <td>Minerva Hooper</td>
+                  <td>CuraÃ§ao</td>
+                  <td>Sinaai-Waas</td>
+                  <td class=" text-center">$23,789</td>
+                </tr>
+                <tr>
+                  <td>Sage Rodriguez</td>
+                  <td>Netherlands</td>
+                  <td>Baileux</td>
+                  <td class=" text-center">$56,142</td>
+                </tr>
+                <tr>
+                  <td>Philip Chaney</td>
+                  <td>Korea, South</td>
+                  <td>Overland Park</td>
+                  <td class=" text-center">$38,735</td>
+                </tr>
+                <tr>
+                  <td>Doris Greene</td>
+                  <td>Malawi</td>
+                  <td>Feldkirchen in KÃ¤rnten</td>
+                  <td class=" text-center">$63,542</td>
+                </tr>
+                <tr>
+                  <td>Mason Porter</td>
+                  <td>Chile</td>
+                  <td>Gloucester</td>
+                  <td class=" text-center">$78,615</td>
+                </tr>
+                <tr>
+                  <td>Jon Porter</td>
+                  <td>Portugal</td>
+                  <td>Gloucester</td>
+                  <td class=" text-center">$98,615</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>
+  <!--Edit modal-->
+  <div class="UserModal" *ngIf="editPostListPanel">
+
+    <div class="UserModalData">
+      <span style="float:right" (click)="closePanel()"><i class='fas fa-times-circle'></i></span>
+
+              <div class=" row">
+                <div class=" col-md-4 px-md-1">
+                  <div class=" form-group">
+                    <label> Caption </label>
+                    <input class=" form-control" type="text" name="caption" [(ngModel)]="postListToEdit.caption" />
+                  </div>
+                </div>
+                <div class=" col-md-4 px-md-1">
+                  <div class=" form-group">
+                    <label>Category </label>
+                    <select class=" form-control" name="category" [(ngModel)]="postListToEdit.category">
+                      <option value="">Select One Of the Options</option>
+                      <option value="Category1" *ngFor="let cats of allcats">{{cats.name}}</option>
+                      <!-- <option value="Category2">Category2</option>
+                      <option value="Category3">Category3</option> -->
+                    </select>
+  
+                  </div>
+                </div>
+                <div class=" col-md-4 px-md-1">
+                  <div class=" form-group">
+                    <label> Location </label>
+                    <input class=" form-control" type="text" name="location" [(ngModel)]="postListToEdit.location" />
+                  </div>
+                </div>
+                <div class=" col-md-4 px-md-1">
+                  <div class=" form-group">
+                    <label>Post Type </label>
+                    <select class=" form-control" name="postType" [(ngModel)]="postListToEdit.postType">
+                      <option value="">Select One Of the Options</option>
+                      <option value="helper">Helper</option>
+                      <option value="awareness">Awareness</option>
+                      <option value="needy">Needy</option>
+                    </select>
+  
+                  </div>
+                </div>
+                <div class=" col-md-4 px-md-1">
+                  <div class=" form-group">
+                    <label>Status Type </label>
+                    <select class=" form-control" name="statusType" [(ngModel)]="postListToEdit.statusType">
+                      <option value="">Select One Of the Options</option>
+                      <option value="Active">Active</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Completed">Completed</option>
+                    </select>
+  
+                  </div>
+                </div>
+                <div class=" col-md-4 px-md-1">
+                  <div class=" form-group">
+                    <label>Title </label>
+                    <input class=" form-control" type="text" name="title" [(ngModel)]="postListToEdit.title" />
+  
+                  </div>
+                </div>
+                <div class=" col-md-4 pl-md-1">
+                  <div class=" form-group">
+                    <label>&nbsp;</label>
+                  </div>
+  
+                </div>
+              </div>
+              <button class=" btn btn-fill btn-danger" type="submit" (click)="updatePostListData()">Save</button>
+              <button class=" btn btn-fill" (click)="closePanel()">Cancel</button>
+  
+            
+          </div>
+        
+      </div>
+   
+  <!--Edit modal-->

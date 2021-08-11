@@ -1,0 +1,76 @@
+<section class=" content">
+
+  <div class="row">
+    <div class="col-lg-3" *ngFor="let data of allboxes">
+      <div class='box'>
+        <div class='wave -one'></div>
+        <div class='wave -two'></div>
+        <div class='wave -three'></div>
+        <div class='title'>{{data.key?data.key:'No Name'}}</div>
+        <div class="titlecount">
+        <span> {{data.value}} </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- chat -->
+  <div>
+    <div class="chatwindow" (click)="openUserWindow()">
+      <div class="chatelement">
+        <i class="fa fa-comments"></i>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="chatuserwindow" *ngIf="showChatList">
+    <div class="userWrapper">
+      <span *ngFor="let users of roomDetails" (click)="OpenChatWindow(users)">{{users.userDetail.name}}</span>
+    </div>
+  </div>
+  <!-- chat -->
+
+
+  <!-- chat window -->
+  <section class="chatWindow" *ngIf="chatWindow">
+  
+    <div class="chat-box">
+      <div class="chat-box-header">
+        {{chatwindowname}}
+        <span class="chat-box-toggle" (click)="closeChatwindow()">
+          <i class="far fa-times-circle" style="font-size: 25px;"></i>
+        </span>
+      </div>
+      <div class="chat-box-body">
+        <div class="chat-logs">
+
+          <div *ngFor="let data of allchatMsgs" [ngClass]="data.sentBy == currentUser ? 'chat-msg self' : 'chat-msg user'">
+            <div class="cm-msg-text"> {{data.message}} 
+              <span title="Message sending Failed click to retry" style="cursor: pointer;" (click)="sendChatmsg()">
+                <i class="fas fa-exclamation-circle fa-nv" *ngIf="data.sentBy == currentUser && data.message==lastchatmsg && sendingfailed"></i>
+              </span>
+            </div>
+          </div>
+          <!-- <div class="chat-msg self" *ngFor="let data of sentchatMsgs"> <div class="cm-msg-text"> {{data.msg}} </div> </div>
+          <div class="chat-msg user" *ngFor="let data of receivedchatMsgs"> <div class="cm-msg-text"> {{data.msg}} </div> </div> -->
+
+        </div>
+      </div>
+      <div class="chat-input">
+          <input type="text" [(ngModel)]="currentMsg" placeholder="Send a message..." />
+          <button type="submit" class="chat-submit"  (click)="sendChatmsg()">
+            <i class="fas fa-paper-plane" style="font-size: 25px; color: #fc5b8f;"></i>
+          </button>
+      </div>
+    </div>
+  
+  </section>
+  <!-- chat window -->
+
+
+</section>

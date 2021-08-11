@@ -1,0 +1,32 @@
+.loadbtn{
+    background-color: #27293d;
+    padding: 1px 20px;
+    color: #fff;
+    border: none;
+    box-shadow: 0px 0px 2px 0px #ffffffc4;
+    cursor: pointer;
+}
+
+.loadbtn:disabled{
+    cursor:no-drop;
+    color: #777;
+}
+
+.searches{
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+    width: 25%;
+    height: 35px;
+}
+
+.searchesbtn{
+    background-color: #27293d;
+    padding: 1px 20px;
+    color: #fff;
+    border: none;
+    box-shadow: 0px 0px 2px 1px #fff;
+    cursor: pointer;
+    margin-left: 8px;
+    height: 33px;
+}

@@ -1,0 +1,36 @@
+.radius{
+    border-radius: 10px 10px 0 0;
+}
+
+.fifty{
+    max-width: 50px;
+    min-width: 50px;
+    max-height: 50px;
+    min-height: 50px;
+}
+
+.tiles{
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px #f0eded;
+    height: 100%;
+}
+
+.tiles .row{
+    margin:unset;
+}
+
+.tiles .posterimg{
+    max-height: 250px;
+    min-height: 250px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.AlterPost{
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
